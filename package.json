@@ -1,0 +1,26 @@
+{
+  "name": "homework-manager-frontend",
+  "version": "0.0.1",
+  "description": "frontend for homework-manager",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makmm/homework-manager-frontend.git"
+  },
+  "author": "makmm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makmm/homework-manager-frontend/issues"
+  },
+  "homepage": "https://github.com/makmm/homework-manager-frontend#readme",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
