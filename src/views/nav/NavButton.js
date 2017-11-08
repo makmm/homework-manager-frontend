@@ -8,7 +8,7 @@ export default class Navbutton extends React.Component {
 
     classes += "nav-button "
 
-    if(this.props.view == this.props.currentView)
+    if(this.props.view === this.props.currentView)
       classes += "nav-button-active"
 
     return (
