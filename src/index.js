@@ -1,54 +1,30 @@
-import axios from 'axios'
-
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import './index.css'
+
+import Navbar from './views/nav/Navbar.js'
 
 class App extends React.Component {
   constructor(props){
     super(props)
-   
-    this.API_HOST = process.env.REACT_APP_API_HOST
 
     this.state = {
-      data: ''
+      view: 'About'
     }
   }
 
-  getData(){
-    return axios.get(
-      this.API_HOST + '/data'
-    )
-      .then(res => {
-        this.setState({
-          data: res.data.data
-        })
-      })
-      .catch(err => {
-        this.setState({
-          error: JSON.stringify(err)
-        })
-      })
-  }
+  handleNavClick(){
 
-  refreshData(){
-    return Promise.all([
-      this.getData()
-    ])
-  }
-
-  componentDidMount(){
-    this.refreshData()
   }
 
   render(){
-    const data = this.state.data ? this.state.data : 'Cargando...'
-
     return (
       <div>
-        <h3>Error: {this.state.error}</h3>
-        <h1>
-          La data es {data}
-        </h1>
+        <Navbar
+          view={this.state.view}
+          handleClick={this.handleNavClick}
+        />
       </div>
     )
   }
