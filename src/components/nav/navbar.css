@@ -1,0 +1,39 @@
+nav {
+  background: #222;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+nav ul li {
+  float: left;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  transition: .6s;
+  background: Transparent;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px;
+  color: white !important;
+  text-decoration: none;
+}
+
+nav ul li:hover {
+  transition: .6s;
+  background: #333;
+}
+
+nav ul:first-child {
+  font-family: 'Oswald', Helvetica, Arial, sans-serif;
+}
+
+.right {
+  float: right;
+}
