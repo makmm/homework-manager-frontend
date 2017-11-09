@@ -2,42 +2,81 @@ import React, {Component} from 'react'
 
 import {Link} from 'react-router-dom'
 
-import './navbar.css'
+import styled from 'styled-components'
 
-export default class Navbar extends Component {
-  renderAccountStuff = () => {
+const Nav = styled.nav`
+  background: #222;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+`
+
+const Items = styled.ul`
+  list-style: none;
+  overflow: hidden;
+`
+
+const Item = styled.li`
+  float: left;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  transition: .6s;
+  background: Transparent;
+
+  &:hover {
+    transition: .6s;
+    background: #333;
+  }
+
+  &:last-of-type {
+    float: right;
+  }
+`
+
+const StyledLink = styled(Link)`
+  display: block;
+  padding: 15px;
+  color: white !important;
+  text-decoration: none;
+`
+
+class AccountItem extends Component {
+  render(){
     if(!this.props.isLoggedIn)
       return (
-        <li>
-          <Link to="/login">
+        <Item>
+          <StyledLink to="/login">
             Login
-          </Link>
-        </li>
+          </StyledLink>
+        </Item>
       )
     else
       return (
-        <li>
+        <Item>
           <span>
             Welcome, {this.props.profile.username}!
           </span>
-        </li>
+        </Item>
       )
   }
+}
 
+export default class Navbar extends Component {
   render(){
     return (
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">
+      <Nav>
+        <Items>
+          <Item>
+            <StyledLink to="/">
               homework-manager
-            </Link>
-          </li>
-          <div className="right">
-            {this.renderAccountStuff()}
-          </div>
-        </ul>
-      </nav>
+            </StyledLink>
+          </Item>
+          <AccountItem
+            isLoggedIn={this.props.isLoggedIn}
+            profile={this.props.profile}
+          />
+        </Items>
+      </Nav>
     )
   }
 }
