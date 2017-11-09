@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
 
-const Login = () => (
-  <div>
-    <h1>Login</h1>
-  </div>
-)
+import Title from './../styled/Title.js'
 
-export default Login
+export default class Login extends Component {
+  render(){
+    return (
+      <div>
+        <Title>Login</Title>
+      </div>
+    )
+  }
+}

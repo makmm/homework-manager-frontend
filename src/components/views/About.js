@@ -1,9 +1,12 @@
 import React from 'react'
 
+import Title from './../styled/Title.js'
+import Description from './../styled/Description.js'
+
 const About = () => (
   <div>
-    <h1>homework-manager</h1>
-    <p>homework-manager is a homework manager for school. </p>
+    <Title>homework-manager</Title>
+    <Description>homework-manager is a homework manager for school. </Description>
   </div>
 )
 
