@@ -1,6 +1,14 @@
 import React from 'react'
 
-import './something-went-wrong.css'
+import styled from 'styled-components'
+
+const Title = styled.h1`
+  font-family: 'Oswald', Helvetica, Arial, sans-serif;
+`
+
+const Description = styled.p`
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+`
 
 const SomethingWentWrong = () => (
   <div>
