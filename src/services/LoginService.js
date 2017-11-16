@@ -7,7 +7,12 @@ export default class LoginService extends Service {
 
   checkSession = async () => {
     const req = axios.get(
-      this.API_HOST + '/login/session'
+      this.API_HOST + '/login/session',
+      {
+        headers: {
+          Authorization: localStorage.getItem('jwtToken')
+        }
+      }
     )
 
     this.loggedIn = (await req).data.success

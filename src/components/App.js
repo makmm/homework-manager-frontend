@@ -12,11 +12,14 @@ export default class App extends Component {
   loginService = new LoginService()
   profileService = new ProfileService()
 
-  componentDidMount = async () => {
-    await this.loginService.checkSession()
-
-    if(this.loginService.isLoggedIn)
-      await this.profileService.getProfile()
+  componentDidMount = () => {
+    this.loginService.checkSession()
+      .then(res => {
+        if(res.data.success){
+          this.profileService.getProfile()
+            .then(() => this.forceUpdate())
+        }
+      })
   }
 
   render(){
