@@ -59,7 +59,8 @@ export default class Profile extends Component {
           <CenteredTitle>
             Profile
           </CenteredTitle>
-          <b>Username</b>: {profile.username}
+          <b>Username</b>: {profile.username}<br/>
+          <b>Email</b>: {profile.email}
         </CenteredContainer>
       )
     else return (
