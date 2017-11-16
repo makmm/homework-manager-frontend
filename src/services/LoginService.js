@@ -3,14 +3,14 @@ import axios from 'axios'
 import Service from './Service.js'
 
 export default class LoginService extends Service {
-  isLoggedIn = false
+  loggedIn = false
 
   checkSession = async () => {
     const req = axios.get(
       this.API_HOST + '/login/session'
     )
 
-    this.isLoggedIn = (await req).data.success
+    this.loggedIn = (await req).data.success
 
     return req
   }
@@ -21,8 +21,12 @@ export default class LoginService extends Service {
       info
     )
 
-    if((await req).data.success)
-      this.isLoggedIn = true
+    const res = await req
+
+    if(res.data.success){
+      localStorage.setItem('jwtToken', res.data.token)
+      this.loggedIn = true
+    }
 
     return req
   }

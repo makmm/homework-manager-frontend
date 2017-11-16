@@ -41,8 +41,15 @@ const StyledLink = styled(Link)`
 `
 
 class AccountItem extends Component {
+  constructor(props){
+    super(props)
+
+    this.loginService = props.loginService
+    this.profileService = props.profileService
+  }
+
   render(){
-    if(!this.props.isLoggedIn)
+    if(!this.loginService.loggedIn)
       return (
         <Item>
           <StyledLink to="/login">
@@ -53,15 +60,22 @@ class AccountItem extends Component {
     else
       return (
         <Item>
-          <span>
-            Welcome, {this.props.profile.username}!
-          </span>
+          <StyledLink to="/profile">
+            Welcome, {this.profileService.profile.username}!
+          </StyledLink>
         </Item>
       )
   }
 }
 
 export default class Navbar extends Component {
+  constructor(props){
+    super(props)
+
+    this.loginService = props.loginService
+    this.profileService = props.profileService
+  }
+
   render(){
     return (
       <Nav>
@@ -72,8 +86,8 @@ export default class Navbar extends Component {
             </StyledLink>
           </Item>
           <AccountItem
-            isLoggedIn={this.props.isLoggedIn}
-            profile={this.props.profile}
+            loginService={this.loginService}
+            profileService={this.profileService}
           />
         </Items>
       </Nav>

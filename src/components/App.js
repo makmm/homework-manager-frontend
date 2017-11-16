@@ -24,10 +24,12 @@ export default class App extends Component {
       <div>
         <Navbar
           loginService={this.loginService}
-          isLoggedIn={this.loginService.isLoggedIn}
-          profile={this.profileService.profile}
+          profileService={this.profileService}
         />
-        <Main />
+        <Main
+          loginService={this.loginService}
+          profileService={this.profileService}
+        />
       </div>
     )
   }
